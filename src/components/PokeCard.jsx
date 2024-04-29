@@ -4,7 +4,7 @@ import { generarNumeroAleatorio } from "../services/num_aleatorio";
 export function PokeCard() {
 
     const [pokemon, setPokemon] = useState(null)
-    const [num, setNum] = useState(Math.floor(Math.random() * 151) +1)
+    const [num, setNum] = useState(Math.floor(Math.random() * 1025) +1)
     console.log(num)
 
     useEffect(() => {
@@ -28,11 +28,11 @@ export function PokeCard() {
         //! tenemos que verificar que pokemon existe porque si no da error
         //! NO PUEDE SER EN EL DIV PRINCIPAL
         <>
-            {pokemon && <article className="rounded-lg text-xs w-64 h-80 items-center flex flex-col gap-6 bg-white ">
+            {pokemon && <article className="rounded-lg text-xxs w-52 h-64 items-center flex flex-col gap-3 bg-white font-bold">
                 <div className="relative w-full flex items-center justify-around z-10">
-                    <img className="absolute rounded-t-lg w-full h-24 top-0" src="../src/assets/bg-pattern-card.svg" alt="tarjeta-color" />
-                    <div className="relative mt-6">
-                        <div className="w-24 h-24 rounded-full bg-white mb-2 flex items-center justify-center overflow-hidden">
+                    <img className="absolute rounded-t-lg w-full h-16 top-0" src="../src/assets/bg-pattern-card.svg" alt="tarjeta-color" />
+                    <div className="relative mt-3">
+                        <div className="w-24 h-24 rounded-full bg-white mb-3 flex items-center justify-center overflow-hidden">
                             <img src={pokemon?.sprites.other.showdown['front_default']} alt="gifPokemon" />
                         </div>
                         <div className="flex flex-col justify-center items-center">
@@ -47,18 +47,18 @@ export function PokeCard() {
                 <div className="relative border-t border-darkGray pt-5 flex items-center justify-center">
                     <div className="flex items-center justify-center flex-col gap-1 mx-3">
                         <h3>{pokemon?.stats[1].base_stat}</h3>
-                        <p>Ataque</p>
+                        <p className="text-darkGray">Ataque</p>
                     </div>
                     <div className="flex items-center justify-center flex-col gap-1 mx-3">
                         <h3>{pokemon?.stats[3].base_stat}</h3>
-                        <p>Ataque especial</p>
+                        <p className="text-darkGray">Ataque especial</p>
                     </div>
                     <div className="flex items-center justify-center flex-col gap-1 mx-3">
                         <h3>{pokemon?.stats[2].base_stat}</h3>
-                        <p>Defensa</p>
+                        <p className="text-darkGray">Defensa</p>
                     </div>
                 </div>
-                <button className="text-white" onClick={handleClick}>
+                <button className="text-white mt-3" onClick={handleClick}>
                     Nuevo Pokemon
                 </button>
 

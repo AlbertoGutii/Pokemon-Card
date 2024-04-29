@@ -14,6 +14,9 @@ export default {
       }, 
       backgroundImage: {
         fondoPokemon: './Pokemon-Card/src/assets/bg-pattern-card.svg'
+      },
+      fontSize: {
+        xxs: '8px'
       }
     },
   },
