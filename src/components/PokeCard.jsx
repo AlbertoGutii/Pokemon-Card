@@ -28,36 +28,28 @@ export function PokeCard() {
         //! tenemos que verificar que pokemon existe porque si no da error
         //! NO PUEDE SER EN EL DIV PRINCIPAL
         <>
-            {pokemon && <article>
-                {/* aqui iria la imagen con el fondo */}
-                <div className="infoPokemon">
-                    <img src={pokemon?.sprites.other.showdown['front_default']} alt="gifPokemon" />
-                    <h1 className="namePokemon">
+            {pokemon && <article className="w-96 h-96 flex flex-col justify-between bg-white ">
+                <div className="relative w-full flex items-center justify-center">
+                    <img className="absolute w-full" src="../src/assets/bg-pattern-card.svg" alt="tarjeta-color" />
+                    <img className="relative my-7 z-10" src={pokemon?.sprites.other.showdown['front_default']} alt="gifPokemon" />
+                    <h1 className="relative">
                         {pokemon?.name}  
-                        <span> {pokemon?.stats[0].base_stat}{pokemon?.stats[0].stat.name}</span>
+                        <span className="font-gray"> {pokemon?.stats[0].base_stat}{pokemon?.stats[0].stat.name}</span>
                     </h1>
-                    <p className="expPokemon">{pokemon?.base_experience} exp</p>
+                    <p className="">{pokemon?.base_experience} exp</p>
                 </div>
-                <div className="statsPokemon">
-                    <div className="statsPokemon">
+                <div className="flex items-center justify-center">
+                    <div className="flex items-center justify-center flex-col gap-1 mx-3">
                         <h3>{pokemon?.stats[1].base_stat}</h3>
-                        <p>{pokemon?.stats[1].stat.name}</p>
+                        <p>Ataque</p>
                     </div>
-                    <div className="statsPokemon">
-                        <h3>{pokemon?.stats[2].base_stat}</h3>
-                        <p>{pokemon?.stats[2].stat.name}</p>
-                    </div>
-                    <div className="statsPokemon">
+                    <div className="flex items-center justify-center flex-col gap-1 mx-3">
                         <h3>{pokemon?.stats[3].base_stat}</h3>
-                        <p>{pokemon?.stats[3].stat.name}</p>
+                        <p>Ataque especial</p>
                     </div>
-                    <div className="statsPokemon">
-                        <h3>{pokemon?.stats[4].base_stat}</h3>
-                        <p>{pokemon?.stats[4].stat.name}</p>
-                    </div>
-                    <div className="statsPokemon">
-                        <h3>{pokemon?.stats[5].base_stat}</h3>
-                        <p>{pokemon?.stats[5].stat.name}</p>
+                    <div className="flex items-center justify-center flex-col gap-1 mx-3">
+                        <h3>{pokemon?.stats[2].base_stat}</h3>
+                        <p>Defensa</p>
                     </div>
                 </div>
                 <button onClick={handleClick}>
